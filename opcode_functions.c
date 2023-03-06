@@ -36,7 +36,8 @@ void push(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pall - prints all the values on the stack, starting from the top of the stack
+ * pall - prints all the values on the stack,
+ * starting from the top of the stack
  * @stack: double pointer to the beginning of the stack
  * @line_number: line number being executed from script file
  *
