@@ -33,5 +33,8 @@ typedef struct instruction_s
 
 #include <stdio.h>
 #include <stdlib.h>
+stack_t *push_stack(stack_t **stack, int n);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
