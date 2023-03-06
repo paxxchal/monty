@@ -33,6 +33,5 @@ typedef struct instruction_s
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 #endif /* MONTY_H */

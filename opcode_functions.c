@@ -1,14 +1,12 @@
 #include "monty.h"
-
 /**
- * push - Pushes an element to the stack.
- * @stack: A pointer to the top of the stack.
- * @line_number: The line number of the push operation.
- * @n: The value to push onto the stack.
+ * push_stack - Pushes an element to the top of the stack.
+ * @stack: Double pointer to the head of the stack.
+ * @n: Integer to push onto the stack.
  *
- * Return: N/A.
+ * Return: Pointer to the newly added node.
  */
-void push(stack_t **stack, unsigned int line_number, int n)
+stack_t *push_stack(stack_t **stack, int n)
 {
 	stack_t *new_node;
 
@@ -18,10 +16,8 @@ void push(stack_t **stack, unsigned int line_number, int n)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-
 	new_node->n = n;
 	new_node->prev = NULL;
-
 	if (*stack == NULL)
 	{
 		new_node->next = NULL;
@@ -31,18 +27,33 @@ void push(stack_t **stack, unsigned int line_number, int n)
 		new_node->next = *stack;
 		(*stack)->prev = new_node;
 	}
-
 	*stack = new_node;
 
-	(void)line_number; /*Silence the unused parameter warning*/
+	return (new_node);
+}
+/**
+ * push - Pushes an element to the stack.
+ * @stack: Double pointer to the head of the stack.
+ * @line_number: Line number in the monty file where the opcode was found.
+ */
+void push(stack_t **stack, unsigned int line_number)
+{
+	char *n;
+
+	n = strtok(NULL, " \n\t");
+
+	if (n == NULL || !is_integer(n))
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	push_stack(stack, atoi(n));
 }
 
 /**
- * pall - Prints all the values on the stack, starting from the top.
- * @stack: A pointer to the top of the stack.
- * @line_number: The line number of the pall operation.
- *
- * Return: N/A.
+ * pall - Prints all the values on the stack.
+ * @stack: Pointer to the head of the stack.
+ * @line_number: Line number in the monty file where the opcode was found.
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
