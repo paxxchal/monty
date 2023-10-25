@@ -76,6 +76,11 @@ void executeOpcode(char *token, stack_t **stack, unsigned int line_number)
 		/* Execute the swap opcode */
 		swap(stack, line_number);
 	}
+	else if (strcmp(token, "add") == 0)
+	{
+		/* Execute the add opcode */
+		add(stack, line_number);
+	}
 }
 
 /**
