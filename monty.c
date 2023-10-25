@@ -66,6 +66,11 @@ void executeOpcode(char *token, stack_t **stack, unsigned int line_number)
 		/* Execute the pint opcode */
 		pint(stack, line_number);
 	}
+	else if (strcmp(token, "pop") == 0)
+	{
+		/* Execute the pop opcode */
+		pop(stack, line_number);
+	}
 }
 
 /**

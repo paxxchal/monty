@@ -39,6 +39,7 @@ void executeOpcode(char *token, stack_t **stack, unsigned int line_number);
 char *parseToken(char *line, char *delim);
 int readLine(FILE *file, char *line, size_t len);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 
 /* Add more function prototypes for other opcodes */
 
