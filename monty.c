@@ -81,6 +81,11 @@ void executeOpcode(char *token, stack_t **stack, unsigned int line_number)
 		/* Execute the add opcode */
 		add(stack, line_number);
 	}
+	else if (strcmp(token, "nop") == 0)
+	{
+		/* Execute the nop opcode */
+		nop(stack, line_number);
+	}
 }
 
 /**
