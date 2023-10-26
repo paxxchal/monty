@@ -91,6 +91,11 @@ void executeOpcode(char *token, stack_t **stack, unsigned int line_number)
 		/* Execute the sub opcode */
 		sub(stack, line_number);
 	}
+	else if (strcmp(token, "div") == 0)
+	{
+		/* Execute the div opcode */
+		monty_div(stack, line_number);
+	}
 }
 
 /**
